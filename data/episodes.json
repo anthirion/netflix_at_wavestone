@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "id_serie": 1,
+        "season": 1,
+        "episode": 1,
+        "description": "This is the first episode of Lupin",
+        "url": "https://s3.aws/series/lupin/s1/e1"
+    },
+    {
+        "id": 2,
+        "id_serie": 1,
+        "season": 1,
+        "episode": 2,
+        "description": "This is the second episode of Lupin",
+        "url": "https://s3.aws/series/lupin/s1/e2"
+    },
+    {
+        "id": 3,
+        "id_serie": 2,
+        "season": 1,
+        "episode": 1,
+        "description": "This is the first episode of House of Cards",
+        "url": "https://s3.aws/series/HouseofCards/s1/e1"
+    },
+    {
+        "id": 4,
+        "id_serie": 2,
+        "season": 1,
+        "episode": 2,
+        "description": "This is the second episode of Lupin",
+        "url": "https://s3.aws/series/HouseofCards/s1/e2"
+    },
+    {
+        "id": 5,
+        "id_serie": 3,
+        "season": 1,
+        "episode": 1,
+        "description": "This is the first episode of la Casa de Papel",
+        "url": "https://s3.aws/series/casaDePapel/s1/e1"
+    },
+    {
+        "id": 6,
+        "id_serie": 3,
+        "season": 1,
+        "episode": 2,
+        "description": "This is the first episode of la Casa de Papel",
+        "url": "https://s3.aws/series/casaDePapel/s1/e2"
+    }
+]

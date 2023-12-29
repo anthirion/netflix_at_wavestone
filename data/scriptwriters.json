@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "name": "Kay",
+        "surname": "George",
+        "alive": true,
+        "series": [1]
+    },
+    {
+        "id": 2,
+        "name": "Alex",
+        "surname": "Pina",
+        "alive": true,
+        "series": [3]
+    },
+    {
+        "id": 3,
+        "name": "Willimon",
+        "surname": "Beau",
+        "alive": true,
+        "series": [2]
+    }
+]
