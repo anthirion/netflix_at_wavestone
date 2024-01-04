@@ -43,7 +43,7 @@ router.post('/series', async (req, res) => {
 })
 
 // Update by ID
-router.patch('/series/:id', async (req, res) => {
+router.put('/series/:id', async (req, res) => {
     try {
         const id = req.params.id;
         const updatedData = req.body;
