@@ -54,8 +54,8 @@ paths:
     post:
       tags:
         - Series
-      summary: Add a new serie to the application
-      description: Add a new serie to the application
+      summary: Adds a new serie to the application
+      description: Adds the specified serie to the application
       operationId: addSerie
       requestBody:
         required: true
@@ -84,7 +84,7 @@ paths:
     get:
       tags:
         - Series
-      summary: Find serie by ID
+      summary: Finds serie by ID
       description: Returns a single serie corresponding to the id in the path
       operationId: getSerieById
       parameters:
@@ -94,9 +94,11 @@ paths:
           description: ID of the serie to return
           schema:
             type: integer
+          example:
+            serie_id: 3
       responses:
         '200':
-          description: successful operation
+          description: Successful operation
           content:
             application/json:
               schema:
@@ -119,8 +121,8 @@ paths:
     put:
       tags:
         - Series
-      summary: Update an existing serie
-      description: Update an existing serie by Id
+      summary: Updates an existing serie
+      description: Updates an existing serie by its Id
       operationId: updateSerie
       parameters:
         - name: serie_id
@@ -129,9 +131,11 @@ paths:
           description: ID of the serie to return
           schema:
             type: integer
+          example:
+            serie_id: 3
       requestBody:
         required: true
-        description: Update an existent serie in the store
+        description: Update an existent serie in the application
         content:
           application/json:
             schema:
@@ -168,7 +172,7 @@ paths:
       tags:
         - Series
       summary: Deletes a serie
-      description: delete a serie
+      description: Deletes a serie by its ID
       operationId: deleteSerie
       parameters:
         - name: serie_id
@@ -177,13 +181,9 @@ paths:
           description: ID of the serie to return
           schema:
             type: integer
+          example:
+            serie_id: 3
       responses:
-        '200':
-          description: Successful operation
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Serie"
         '400':
           description: Invalid ID supplied
           content:
@@ -217,47 +217,50 @@ components:
     ErrorInvalidRequest:
       type: object
       properties:
-        idError: 
+        error_id: 
           type: integer
         description: 
           type: string
       example:
-        idError: 1
-        description: "Please check if the URL is correct"
+        error_id: 1
+        description: "Please check that the URL is correct"
     
     
     ErrorInvalidInput:
       type: object
       properties:
-        idError: 
+        error_id: 
           type: integer
         description: 
           type: string
       example:
-        idError: 2
-        description: "Please check that the body is correct and has all required fields"
+        error_id: 2
+        description: "Please check that the request body is correct and has all required fields"
     
     
     ErrorInvalidID:
       type: object
       properties:
-        idError: 
+        error_id: 
           type: integer
         description: 
           type: string
       example:
-        idError: 3
+        error_id: 3
         description: "Please check that the serie_id is correct"
     
     
     ErrorItemNotFound:
       type: object
       properties:
-        idError: 
+        error_id: 
           type: integer
         description: 
           type: string
       example:
-        idError: 4
-        description: "The item with the given id was not found"
-
+        error_id: 4
+        description: "The serie with the given id was not found"
+    
+    
+  
+  
