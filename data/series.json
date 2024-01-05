@@ -1,8 +1,10 @@
 [
     {
         "_id": 1,
+        "name": "Lupin",
         "id_scriptwriter": 1,
-        "genres": ["Drame", "Policier", "Thriller", "Action"],
+        "year": 2021,
+        "genre": ["Drame", "Policier", "Thriller", "Action"],
         "nb_seasons": 3,
         "nb_episodes": 17,
         "episodes": [1, 2],
@@ -11,8 +13,10 @@
 
     {
         "_id": 2,
+        "name": "House of Cards",
         "id_scriptwriter": 3,
-        "genres": ["Drame", "Politique"],
+        "year": 2013,
+        "genre": ["Drame", "Politique"],
         "nb_seasons": 6,
         "nb_episodes": 73,
         "episodes": [3, 4],
@@ -21,8 +25,10 @@
 
     {
         "_id": 3,
+        "name": "La Casa de Papel",
         "id_scriptwriter": 3,
-        "genres": ["Drame", "Thriller"],
+        "year": 2019,
+        "genre": ["Drame", "Thriller"],
         "nb_seasons": 5,
         "nb_episodes": 48,
         "episodes": [5, 6],

@@ -1,0 +1,25 @@
+Ce document présente un certain nombre de requêtes simples pour appliquer les notions 
+vues en formation API.
+
+// Opérations GET et filtres
+1. Obtenir toutes les séries disponibles
+2. Obtenir les séries dont le titre contient "house"
+3. Obtenir les séries dont le nombre de saisons est 3
+4. Obtenir les séries dont le nombre de saisons est 3 et le nombre d'épisodes est 17
+5. Obtenir les séries dont l'un des genres est Drame
+6.  Obtenir les séries dont l'un des genres est Drame et les trier par nombre de saisons
+    dans l'ordre croissant
+(7.  Obtenir les séries dont l'un des genres est Drame et les trier par nombre de saisons
+    dans l'ordre *décroissant*) (*ne fonctionne pas*)
+
+// Opérations GET ID
+8. Récupérer les données de la série dont l'id est 1, ...
+9. ...puis 2,...
+10. ...puis 3
+
+// Opérations POST
+11. Insérer une erreur dans la série de votre choix (vous pouvez changer la date, le scénariste, etc)
+12. Corriger les erreurs
+
+// Opérations DELETE
+13. Supprimer la série dont l'id est 1

@@ -8,8 +8,6 @@ const MongoDBURL = process.env.DATABASE_URL;
 const app = express();
 // body parser
 app.use(express.json());
-// const bodyParser = require("body-parser")
-// app.use(bodyParser.urlencoded({ extended: true }));
 
 // connect to database
 connectDB(MongoDBURL);
@@ -22,6 +20,9 @@ const router = require('./routes');
 const Serie = require('./data_models');
 app.use('/netflix_at_wavestone', router);
 
+
+
+// Add a new serie automatically to the database
 // var newSerie = new Serie({
 //     id: 1,
 //     id_scriptwriter: 1,

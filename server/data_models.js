@@ -5,11 +5,19 @@ const serieSchema = new Schema({
         required: true,
         type: Number
     },
+    name: {
+        required: true,
+        type: String
+    },
     id_scriptwriter: {
         required: true,
         type: Number
     },
-    genres: {
+    year: {
+        required: true,
+        type: Number
+    },
+    genre: {
         required: true,
         type: [String]
     },

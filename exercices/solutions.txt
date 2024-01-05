@@ -1,0 +1,31 @@
+Ce document donne les solutions aux exercices pratiques de la formation API.
+
+// Opérations GET et filtres
+1. GET http://localhost:4000/netflix_at_wavestone/series
+2. GET http://localhost:4000/netflix_at_wavestone/series?name=house
+3. GET http://localhost:4000/netflix_at_wavestone/series?nb_seasons=3
+4. GET http://localhost:4000/netflix_at_wavestone/series?nb_seasons=3&nb_episodes=17
+5. GET http://localhost:4000/netflix_at_wavestone/series?genre=Drame
+6. GET http://localhost:4000/netflix_at_wavestone/series?genre=Drame&sort=nb_seasons
+7. GET http://localhost:4000/netflix_at_wavestone/series?genre=Drame&sort=nb_seasons, desc*
+
+// Opérations GET ID
+8. GET http://localhost:4000/netflix_at_wavestone/series/1
+
+// Opérations POST
+11 et 12. POST http://localhost:4000/netflix_at_wavestone/series
+puis insérer un body avec les bons paramètres, par ex:
+{
+    "_id": 1,
+    "name": "Lupin",
+    "id_scriptwriter": 1,
+    "year": 2020,
+    "genre": ["Drame", "Policier", "Thriller", "Action"],
+    "nb_seasons": 3,
+    "nb_episodes": 17,
+    "episodes": [1, 2],
+    "description": "This is the serie named Lupin"
+}
+
+// Opérations DELETE
+13. DELETE http://localhost:4000/netflix_at_wavestone/series/1
