@@ -25,8 +25,12 @@ router.get('/series', async (req, res) => {
         const query_nb_seasons = req.query.nb_seasons || "";
         // Implement search by NbEpisodes
         const query_nb_episodes = req.query.nb_episodes || "";
+        // Implement search by NbEpisodes
+        const query_year = req.query.year || "";
         // Implement sort
-        let sort = req.query.sort || "year";
+        let request_sort = req.query.sort || "year";
+        // Implement the order of sort
+        let request_orderBy = req.query.orderBy || "asc";
         // Implement genre filtering
 		let genre = req.query.genre || "All";
 
@@ -34,34 +38,35 @@ router.get('/series', async (req, res) => {
         genre === "All"
 			? (genre = [...genreOptions])
 			: (genre = req.query.genre.split(","));
+            
+            
+        // si le champ sort n'est pas vide, on met sépare les champs dans un array
+        if (req.query.sort) {
+            sort = req.query.sort.split(",")
+        }
+            
+        // pour l'ordre du tri, il faut faire correspondre "desc" à -1
+        // et "asc" à 1
+        let sortBy = {}
+        request_orderBy === "desc" ? sortBy[request_sort] = -1 : sortBy[request_sort] = 1
 
-		req.query.sort ? (sort = req.query.sort.split(",")) : (sort = [sort]);
-
-        // Enable sort in ascending or descending order
-        let sortBy = {};
-		if (sort[1]) {
-			sortBy[sort[0]] = sort[1];
-		} else {
-			sortBy[sort[0]] = "asc";
-		}
-
-        // A faire par une boucle for
+        // Ajoute les critères de recherches de l'url dans l'objet criteria
         let criteria = {}
+        let queries = [query_nb_seasons, query_nb_episodes, query_year]
+        let filters = ["nb_seasons", "nb_episodes", "year"]
+
+        for (let i = 0; i < queries.length; i++)
+        {
+            if (queries[i]) {
+                criteria[filters[i]] = queries[i]
+            }
+        }
 
         // Cherche le nom de la série qui contient ce qui est passé dans le body
-        if (query_name !== "")
+        // Le nom est traité à part car on fait une recherche basée sur regexp
+        if (query_name)
         {
             criteria.name = { $regex: query_name, $options: "i" }
-        }
-        // Cherche la série dont le nb de saisons correspond au nombre passé dans le body 
-        if (query_nb_seasons !== "")
-        {
-            criteria.nb_seasons = query_nb_seasons
-        }
-        // Cherche la série dont le nb d'épisodes correspond au nombre passé dans le body 
-        if (query_nb_episodes !== "")
-        {
-            criteria.nb_episodes = query_nb_episodes
         }
         
         const series = await Serie.find(criteria)
@@ -71,7 +76,7 @@ router.get('/series', async (req, res) => {
 
         const response = {
 			error: false,
-			series,
+			series
 		};
 
         res.status(200).json(response)

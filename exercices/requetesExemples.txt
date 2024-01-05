@@ -9,8 +9,8 @@ vues en formation API.
 5. Obtenir les séries dont l'un des genres est Drame
 6.  Obtenir les séries dont l'un des genres est Drame et les trier par nombre de saisons
     dans l'ordre croissant
-(7.  Obtenir les séries dont l'un des genres est Drame et les trier par nombre de saisons
-    dans l'ordre *décroissant*) (*ne fonctionne pas*)
+7.  Obtenir les séries dont l'un des genres est Drame et les trier par nombre de saisons
+    dans l'ordre *décroissant*
 
 // Opérations GET ID
 8. Récupérer les données de la série dont l'id est 1, ...
