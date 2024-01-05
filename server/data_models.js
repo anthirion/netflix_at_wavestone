@@ -21,6 +21,10 @@ const serieSchema = new Schema({
         required: true,
         type: Number
     },
+    episodes: {
+        required: true,
+        type: [Number]
+    },
     description: {
         required: true,
         type: String

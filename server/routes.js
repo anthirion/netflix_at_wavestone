@@ -32,6 +32,7 @@ router.post('/series', async (req, res) => {
         genres: req.body.genres,
         nb_seasons: req.body.nb_seasons,
         nb_episodes: req.body.nb_episodes,
+        episodes: req.body.episodes,
         description: req.body.description
     })
 
