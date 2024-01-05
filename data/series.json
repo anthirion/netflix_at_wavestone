@@ -2,21 +2,27 @@
     {
         "_id": 1,
         "id_scriptwriter": 1,
-        "episodes": [1, 2],
+        "genres": ["Drame", "Policier", "Thriller", "Action"],
+        "nb_seasons": 3,
+        "nb_episodes": 17,
         "description": "This is the serie named Lupin"
     },
 
     {
         "_id": 2,
         "id_scriptwriter": 3,
-        "episodes": [3, 4],
+        "genres": ["Drame", "Politique"],
+        "nb_seasons": 6,
+        "nb_episodes": 73,
         "description": "This is the serie named House of Cards"
     },
 
     {
         "_id": 3,
         "id_scriptwriter": 3,
-        "episodes": [5, 6],
+        "genres": ["Drame", "Thriller"],
+        "nb_seasons": 5,
+        "nb_episodes": 48,
         "description": "This is the serie named La Casa de Papel"
     }
 ]

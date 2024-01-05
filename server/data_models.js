@@ -9,9 +9,17 @@ const serieSchema = new Schema({
         required: true,
         type: Number
     },
-    episodes: {
+    genres: {
         required: true,
-        type: [Number]
+        type: [String]
+    },
+    nb_seasons: {
+        required: true,
+        type: Number
+    },
+    nb_episodes: {
+        required: true,
+        type: Number
     },
     description: {
         required: true,

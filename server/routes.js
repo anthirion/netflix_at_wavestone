@@ -29,7 +29,9 @@ router.post('/series', async (req, res) => {
     const data = new Serie({
         _id: req.body._id,
         id_scriptwriter: req.body.id_scriptwriter,
-        episodes: req.body.episodes,
+        genres: req.body.genres,
+        nb_seasons: req.body.nb_seasons,
+        nb_episodes: req.body.nb_episodes,
         description: req.body.description
     })
 
