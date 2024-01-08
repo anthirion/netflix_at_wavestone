@@ -56,6 +56,14 @@ const scriptwriterSchema = new Schema({
         required: true,
         type: Boolean
     },
+    nationality: {
+        required: true,
+        type: String
+    },
+    date_of_birth: {
+        required: true,
+        type: Number
+    },
     series: {
         required: true,
         type: [Number]
@@ -91,5 +99,7 @@ const episodeSchema = new Schema({
 
 const Serie = model("Series", serieSchema)
 module.exports = Serie
-// module.exports = model('scriptwriters', scriptwriterSchema)
-// module.exports = model('episodes', episodeSchema)
+// const Scriptwriter = model('scriptwriters', scriptwriterSchema)
+// module.exports = Scriptwriter
+// const Episodes = model('episodes', episodeSchema)
+// module.exports = Episodes

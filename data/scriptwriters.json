@@ -1,23 +1,29 @@
 [
     {
-        "_id": 1,
+        "_id": 4,
         "name": "Kay",
         "surname": "George",
         "alive": true,
+        "nationality": "English",
+        "date_of_birth": 1979,
         "series": [1]
     },
     {
-        "_id": 2,
+        "_id": 5,
         "name": "Alex",
         "surname": "Pina",
         "alive": true,
+        "nationality": "Spanish",
+        "date_of_birth": 1967,
         "series": [3]
     },
     {
-        "_id": 3,
+        "_id": 6,
         "name": "Willimon",
         "surname": "Beau",
         "alive": true,
+        "nationality": "American",
+        "date_of_birth": 1977,
         "series": [2]
     }
 ]
