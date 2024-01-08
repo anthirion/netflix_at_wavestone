@@ -2,6 +2,7 @@ const express = require('express');
 const Serie = require('./data_models');
 const router = express.Router();
 
+// All the possible genres
 const genreOptions = [
     "Drame",
     "Policier",
@@ -16,41 +17,48 @@ const genreOptions = [
     "Famille",
 ];
 
+/********************************************************************************
+ * 
+ * Endpoints related to series resource
+ * 
+ **********************************************************************************/
+
 // Get all series
 router.get('/series', async (req, res) => {
     try {
-        // Implement search by name
+        // Get the requested serie name in the query
         const query_name = req.query.name || "";
-        // Implement search by NbSeasons
+        // Get the requested NbSeasons in the query
         const query_nb_seasons = req.query.nb_seasons || "";
-        // Implement search by NbEpisodes
+        // Get the requested NbEpisodes in the query
         const query_nb_episodes = req.query.nb_episodes || "";
-        // Implement search by NbEpisodes
+        // Get the requested NbEpisodes in the query
         const query_year = req.query.year || "";
-        // Implement sort
+        // Get the requested field for sort
         let request_sort = req.query.sort || "year";
-        // Implement the order of sort
+        // Get the requested order of sort
         let request_orderBy = req.query.orderBy || "asc";
-        // Implement genre filtering
+        // Get the requested serie genre in the query
 		let genre = req.query.genre || "All";
 
-        
+        // if no genre is specified, search for all possible genre
+        // if at least one genre is specified, get all the requested genre in an array
         genre === "All"
 			? (genre = [...genreOptions])
 			: (genre = req.query.genre.split(","));
             
             
-        // si le champ sort n'est pas vide, on met sépare les champs dans un array
         if (req.query.sort) {
             sort = req.query.sort.split(",")
         }
             
-        // pour l'ordre du tri, il faut faire correspondre "desc" à -1
-        // et "asc" à 1
+        // for the sort order, mongoose require -1 for descending order
+        // and 1 for ascending order
         let sortBy = {}
         request_orderBy === "desc" ? sortBy[request_sort] = -1 : sortBy[request_sort] = 1
 
-        // Ajoute les critères de recherches de l'url dans l'objet criteria
+        // Add all the search criteria requested by the user in the object criteria
+        // criteria can include the requested year, number of seasons or of episodes
         let criteria = {}
         let queries = [query_nb_seasons, query_nb_episodes, query_year]
         let filters = ["nb_seasons", "nb_episodes", "year"]
@@ -62,18 +70,19 @@ router.get('/series', async (req, res) => {
             }
         }
 
-        // Cherche le nom de la série qui contient ce qui est passé dans le body
-        // Le nom est traité à part car on fait une recherche basée sur regexp
+        // Search the requested name with a regexp search
         if (query_name)
         {
             criteria.name = { $regex: query_name, $options: "i" }
         }
         
+        // Get all series meeting the requested criteria, included in the criteria object
         const series = await Serie.find(criteria)
 			.where("genre")
 			.in([...genre])
 			.sort(sortBy)
 
+        // The response to send
         const response = {
 			error: false,
 			series
@@ -102,6 +111,7 @@ router.get('/series/:id', async (req, res) => {
 
 // Create a new serie
 router.post('/series', async (req, res) => {
+    // Parse all the fields in the body sent by the user
     const data = new Serie({
         _id: req.body._id,
         name: req.body.name,
@@ -141,7 +151,7 @@ router.put('/series/:id', async (req, res) => {
     }
 })
 
-// Delete a serie
+// Delete a serie with its id
 router.delete('/series/:id', async (req, res) => {
     try {
         const id = req.params.id;
@@ -153,4 +163,5 @@ router.delete('/series/:id', async (req, res) => {
     }
 })
 
+// Export all the routes defined above
 module.exports = router;
