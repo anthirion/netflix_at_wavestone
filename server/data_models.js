@@ -9,9 +9,9 @@ const serieSchema = new Schema({
         required: true,
         type: String
     },
-    id_scriptwriter: {
+    scriptwriter: {
         required: true,
-        type: Number
+        type: String
     },
     year: {
         required: true,

@@ -2,36 +2,36 @@
     {
         "_id": 1,
         "name": "Lupin",
-        "id_scriptwriter": 4,
+        "scriptwriter": "George Kay",
         "year": 2021,
         "genre": ["Drame", "Policier", "Thriller", "Action"],
         "nb_seasons": 3,
         "nb_episodes": 17,
         "episodes": [1, 2],
-        "description": "This is the serie named Lupin"
+        "description": "En 1995, le jeune Assane Diop est bouleversé par le suicide de son père, accusé d'un vol qu'il n'a pas commis. Vingt-cinq ans plus tard, Assane organise le vol d'un collier ayant appartenu à Marie-Antoinette d'Autriche. Le bijou, aujourd'hui exposé au musée du Louvre, appartenait à la riche famille Pellegrini. Il veut se venger de cette famille ayant accusé à tort son père, en s'inspirant de son personnage fétiche : le « gentleman cambrioleur » Arsène Lupin, utilisant la science de ce personnage aux multiples facettes imaginé par Maurice Leblanc pour échapper à la police. En parallèle de ses activités illégales, Assane tente également de s'occuper davantage de son fils Raoul, qui vit aujourd'hui avec son ex-petite amie Claire."
     },
 
     {
         "_id": 2,
         "name": "House of Cards",
-        "id_scriptwriter": 6,
+        "scriptwriter": "Beau Willimon",
         "year": 2013,
         "genre": ["Drame", "Politique"],
         "nb_seasons": 6,
         "nb_episodes": 73,
         "episodes": [3, 4],
-        "description": "This is the serie named House of Cards"
+        "description": "Francis Underwood, dit Frank, coordinateur de la majorité démocrate au Congrès américain et représentant de l'État de Caroline du Sud, célèbre l'élection du président Garret Walker, qu'il a contribué à faire élire de manière déterminante. En contrepartie, Walker s'engage à nommer Francis secrétaire d'État dans son cabinet, soit l'équivalent du ministre des Affaires étrangères. Néanmoins, peu avant l'investiture du président élu, la chef de cabinet, Linda Vasquez, lui annonce que Walker n'a pas l'intention d'honorer sa promesse. Furieux, Underwood et sa femme Claire, qui comptait sur la nomination de son mari pour développer son ONG de défense de l'environnement, s'allient pour détruire ceux qui s'opposent à leurs projets. Frank Underwood se présente alors par la suite comme un fidèle du président tandis qu'en réalité il commence secrètement à élaborer un plan pour se venger et parvenir à ses fins. Pour ce faire, il dispose de deux atouts dans sa manche : le représentant de Pennsylvanie Peter Russo, manipulable du fait d'une vie privée dissolue, et la jeune et ambitieuse Zoe Barnes, qui travaille au Washington Herald, et qui a soif de réussir dans le journalisme. Frank Underwood est un manipulateur dénué du moindre scrupule : seule compte à ses yeux sa conquête des sommets du pouvoir. Claire Underwood, l'épouse de Frank, dirige une ONG, Clean Water Initiative, l'entraînant sur le terrain politique par le biais du lobbying. Claire partage le pragmatisme impitoyable, l'ambition et la soif de pouvoir de son mari et, bien que tous deux très indépendants, œuvrent ensemble pour étendre leur influence. À de nombreuses reprises, le personnage principal utilise l'aparté : il s'adresse régulièrement au spectateur en regardant la caméra, brisant ainsi le quatrième mur. Ce procédé lui permet d'exposer ses idées ou de les faire deviner au spectateur. "
     },
 
     {
         "_id": 3,
         "name": "La Casa de Papel",
-        "id_scriptwriter": 5,
+        "scriptwriter": "Alex Pina",
         "year": 2019,
         "genre": ["Drame", "Thriller"],
         "nb_seasons": 5,
         "nb_episodes": 48,
         "episodes": [5, 6],
-        "description": "This is the serie named La Casa de Papel"
+        "description": "Un homme mystérieux, surnommé le Professeur, planifie le braquage le plus audacieux jamais réalisé. Pour exécuter son plan, il recrute huit des meilleurs malfaiteurs en Espagne qui n'ont rien à perdre. Le but est d'infiltrer la Fabrique nationale de la monnaie afin d'imprimer 2,4 milliards d'euros, en petites coupures de 50 € et cela en moins de onze jours, sans victimes — malgré la présence de 67 otages, dont la fille de l'ambassadeur du Royaume-Uni, Alison Parker, et sans qu’il y ait de relations amoureuses entre les braqueurs… Le Professeur demande aussi aux membres de la bande de se choisir un pseudonyme à partir de noms de ville : Tokyo, Rio, Berlin, Denver, Nairobi, Oslo, Helsinki et Moscou. Lors de la deuxième saison (composée des parties 3, 4 et 5), le Professeur reprend un projet imaginé par son demi-frère avant le premier braquage. Le but est d'infiltrer la Banque d'Espagne afin de dérober 90 tonnes d'or et de sauver un des leurs, Rio, emprisonné et torturé illégalement par la police espagnole, qui garde le secret sur ses actes. "
     }
 ]

@@ -20,6 +20,19 @@ vues en formation API.
 // Opérations POST
 11. Insérer une erreur dans la série de votre choix (vous pouvez changer la date, le scénariste, etc)
 12. Corriger les erreurs
+13. Ajouter la série suivante dans la base de données :
+{
+    "_id": 4,
+    "name": "Squid Game",
+    "scriptwriter": "Hwang Dong-hyeok",
+    "year": 2021,
+    "genre": ["Drame", "Thriller", "Aventure", "Dystopie"],
+    "nb_seasons": 1,
+    "nb_episodes": 9,
+    "episodes": [7, 8],
+    "description": "456 personnes, qui ont toutes des difficultés financières dans la vie, sont invitées à prendre part à une mystérieuse compétition de survie. Participant à une série de jeux traditionnels pour enfants, mais avec des issues mortelles, elles risquent leur vie pour gagner le prix de 32 millions d'euros."
+}
 
 // Opérations DELETE
-13. Supprimer la série dont l'id est 1
+14. Supprimer la série dont l'id est 1
+15. Supprimer la série que vous avez ajouté (id: 4)

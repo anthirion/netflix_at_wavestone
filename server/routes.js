@@ -16,6 +16,7 @@ const genreOptions = [
     "Aventure",
     "Sci-fi",
     "Famille",
+    "Dystopie",
 ];
 
 /********************************************************************************
@@ -35,6 +36,8 @@ router.get('/series', async (req, res) => {
         const query_nb_episodes = req.query.nb_episodes || "";
         // Get the requested NbEpisodes in the query
         const query_year = req.query.year || "";
+        // Get the requested NbEpisodes in the query
+        const query_scriptwriter = req.query.scriptwriter || "";
         // Get the requested field for sort
         let request_sort = req.query.sort || "year";
         // Get the requested order of sort
@@ -76,6 +79,11 @@ router.get('/series', async (req, res) => {
         {
             criteria.name = { $regex: query_name, $options: "i" }
         }
+        // Search the requested scriptwriter with a regexp search
+        if (query_scriptwriter)
+        {
+            criteria.scriptwriter = { $regex: query_scriptwriter, $options: "i" }
+        }
         
         // Get all series meeting the requested criteria, included in the criteria object
         const series = await Serie.find(criteria)
@@ -116,7 +124,7 @@ router.post('/series', async (req, res) => {
     const data = new Serie({
         _id: req.body._id,
         name: req.body.name,
-        id_scriptwriter: req.body.id_scriptwriter,
+        scriptwriter: req.body.scriptwriter,
         year: req.body.year,
         genre: req.body.genre,
         nb_seasons: req.body.nb_seasons,

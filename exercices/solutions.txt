@@ -27,5 +27,9 @@ puis insérer un body avec les bons paramètres, par ex:
     "description": "This is the serie named Lupin"
 }
 
+13. POST http://localhost:4000/netflix_at_wavestone/series
+puis ajouter le body donné
+
 // Opérations DELETE
-13. DELETE http://localhost:4000/netflix_at_wavestone/series/1
+14. DELETE http://localhost:4000/netflix_at_wavestone/series/1
+15. DELETE http://localhost:4000/netflix_at_wavestone/series/4
