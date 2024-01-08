@@ -7,7 +7,7 @@ Ce document donne les solutions aux exercices pratiques de la formation API.
 4. GET http://localhost:4000/netflix_at_wavestone/series?nb_seasons=3&nb_episodes=17
 5. GET http://localhost:4000/netflix_at_wavestone/series?genre=Drame
 6. GET http://localhost:4000/netflix_at_wavestone/series?genre=Drame&sort=nb_seasons
-7. GET http://localhost:4000/netflix_at_wavestone/series?genre=Drame&sort=nb_seasons, desc*
+7. GET http://localhost:4000/netflix_at_wavestone/series?genre=Drame&sort=nb_seasons&orderBy=desc
 
 // Opérations GET ID
 8. GET http://localhost:4000/netflix_at_wavestone/series/1
