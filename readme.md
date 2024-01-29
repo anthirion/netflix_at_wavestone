@@ -3,6 +3,7 @@
 Netflix at Wavestone est une implémentation d'une API simple utilisée dans le cadre d'une formation introductive aux APIs. 
 Cette implémentation n'expose qu'un seul endpoint (/series) et propose des opérations basiques d'ajout, de modification et de suppression des séries et de ses attributs.
 Elle a pour but de faire découvrir les principales requêtes API (GET, PUT, POST, DELETE) et les filtres simples.
+Pour plus d'informations sur les endpoints, les réponses et les erreurs, veuillez consulter le swagger fourni dans ce repo.
 
 ## Utilisation en local
 ### Installer une base de données MongoDB
