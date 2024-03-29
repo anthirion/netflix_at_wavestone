@@ -49,13 +49,13 @@ ssh -i cle_ssh_publique.pem dns_public
 ### Lancer la base de données MongoDB
 Lancer la base de données en lançant le script launch_mongodb.sh de la manière suivante :
 ```bash
-./launch_mongodb.sh
+sudo ./launch_mongodb.sh
 ```
 
 ### Lancer le serveur API
 Lancer le serveur en lançant le script launch_server.sh de la manière suivante :
 ```bash
-./launch_server.sh
+sudo ./launch_server.sh
 ```
 
 ### Intéragir avec l'API via Postman
