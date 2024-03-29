@@ -8,7 +8,8 @@ const MongoDBURL = process.env.DATABASE_URL;
 // express setup
 const app = express();
 // body parser setup
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // connect to database and load all necessary data
 connectDB(MongoDBURL);
