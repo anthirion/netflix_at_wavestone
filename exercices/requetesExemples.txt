@@ -6,13 +6,13 @@ vues en formation API.
 2. Obtenir les séries dont le titre contient "house"
 3. Obtenir les séries dont le nombre de saisons est 3
 4. Obtenir les séries dont le nombre de saisons est 3 et le nombre d'épisodes est 17
-5. Obtenir les séries dont l'un des genres est Drame
+5. Obtenir les séries dont l'un des genres est Policier
 6.  Obtenir les séries dont l'un des genres est Drame et les trier par nombre de saisons
     dans l'ordre croissant
 7.  Obtenir les séries dont l'un des genres est Drame et les trier par nombre de saisons
     dans l'ordre *décroissant*
 
-// Opérations GET ID
+// Opérations GET by ID
 8. Récupérer les données de la série dont l'id est 1, ...
 9. ...puis 2,...
 10. ...puis 3

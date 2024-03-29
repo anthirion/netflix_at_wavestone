@@ -5,20 +5,22 @@ Ce document donne les solutions aux exercices pratiques de la formation API.
 2. GET http://localhost:4000/netflix_at_wavestone/series?name=house
 3. GET http://localhost:4000/netflix_at_wavestone/series?nb_seasons=3
 4. GET http://localhost:4000/netflix_at_wavestone/series?nb_seasons=3&nb_episodes=17
-5. GET http://localhost:4000/netflix_at_wavestone/series?genre=Drame
+5. GET http://localhost:4000/netflix_at_wavestone/series?genre=Policier
 6. GET http://localhost:4000/netflix_at_wavestone/series?genre=Drame&sort=nb_seasons
 7. GET http://localhost:4000/netflix_at_wavestone/series?genre=Drame&sort=nb_seasons&orderBy=desc
 
-// Opérations GET ID
+// Opérations GET by ID
 8. GET http://localhost:4000/netflix_at_wavestone/series/1
+9. GET http://localhost:4000/netflix_at_wavestone/series/2
+10. GET http://localhost:4000/netflix_at_wavestone/series/3
 
 // Opérations POST
 11 et 12. POST http://localhost:4000/netflix_at_wavestone/series
-puis insérer un body avec les bons paramètres, par ex:
+puis insérer un body avec de mauvais paramètres, par ex:
 {
     "_id": 1,
     "name": "Lupin",
-    "id_scriptwriter": 1,
+    "scriptwriter": "George Kay",
     "year": 2020,
     "genre": ["Drame", "Policier", "Thriller", "Action"],
     "nb_seasons": 3,
