@@ -2,12 +2,13 @@ require('dotenv').config()
 const cors = require('cors');
 const express = require('express');
 const connectDB = require('./db');
+var bodyParser = require('body-parser');
 const MongoDBURL = process.env.DATABASE_URL;
 
 // express setup
 const app = express();
 // body parser setup
-app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // connect to database and load all necessary data
 connectDB(MongoDBURL);
