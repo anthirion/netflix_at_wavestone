@@ -199,7 +199,19 @@ components:
       properties:
         _id: 
           type: integer
-        id_scriptwriter: 
+        name: 
+          type: string
+        scritpwriter:
+          type: string
+        year:
+          type: integer
+        genre: 
+          type: array
+          items:
+            type: string
+        nb_seasons:
+          type: integer
+        nb_episodes:
           type: integer
         episodes: 
           type: array
@@ -209,9 +221,14 @@ components:
           type: string
       example:
         _id: 1
-        id_scriptwriter: 1
+        name: "Lupin"
+        scriptwriter: "George Kay"
+        year: 2021
+        genre: ["Drame", "Policier", "Thriller", "Action"]
+        nb_seasons: 3
+        nb_episodes: 17
         episodes: [1, 2]
-        description: "This is the serie named Lupin"
+        description: "En 1995, le jeune Assane Diop est bouleversé par le suicide de son père, accusé d'un vol qu'il n'a pas commis. Vingt-cinq ans plus tard, Assane organise le vol d'un collier ayant appartenu à Marie-Antoinette d'Autriche. Le bijou, aujourd'hui exposé au musée du Louvre, appartenait à la riche famille Pellegrini. Il veut se venger de cette famille ayant accusé à tort son père, en s'inspirant de son personnage fétiche : le « gentleman cambrioleur » Arsène Lupin, utilisant la science de ce personnage aux multiples facettes imaginé par Maurice Leblanc pour échapper à la police. En parallèle de ses activités illégales, Assane tente également de s'occuper davantage de son fils Raoul, qui vit aujourd'hui avec son ex-petite amie Claire."
           
           
     ErrorInvalidRequest:
