@@ -1,7 +1,6 @@
 #!/bin/bash
 
 mongodb_directory="/etc/yum.repos.d/"
-cd mongodb_directory
 # Check that the mongodb repo exists
 mongodb_repo=$mongodb_directory/mongodb-org-7.0.repo
 if [[ ! -f $"mongodb_repo" ]]; then

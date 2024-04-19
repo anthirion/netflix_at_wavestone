@@ -9,7 +9,7 @@ cd path_to_server
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
 . ~/.nvm/nvm.sh
 nvm install --lts
-sudo npm install express node mongoose nodemon
+sudo npm install express node mongoose nodemon dotenv
 
 # Check that the server file exists
 server_file=$path_to_server/server.js
