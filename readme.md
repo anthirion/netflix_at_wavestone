@@ -37,6 +37,9 @@ Utilisez Postman pour effectuer des requêtes. L'adresse de connection devrait �
 http://localhost:4000/series
 
 ## Utilisation à travers l'instance ec2 Wavestone (à destination des formateurs)
+### Ouvrir les ports nécessaires sur l'instance ec2
+Assurez-vous que les ports 4000 et 27017 sont ouverts sur la VM (le port 4000 sert au serveur et le port 27017 à la BDD).
+
 ### Se connecter à l'instance via ssh
 Si vous ne l'avez pas encore fait, créez une paire de clés ssh en suivant la documentation sur le lien suivant :
 https://docs.aws.amazon.com/fr_fr/servicecatalog/latest/adminguide/getstarted-keypair.html
