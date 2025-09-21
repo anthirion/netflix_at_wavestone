@@ -21,6 +21,21 @@ const genreOptions = [
 
 /********************************************************************************
  * 
+ * Health check endpoint
+ * 
+ **********************************************************************************/
+
+router.get('/health', (req, res) => {
+  res.status(200).json({
+    status: 'OK',
+    message: 'If you see this message, the API is working !',
+    timestamp: new Date().toISOString()
+  });
+});
+
+
+/********************************************************************************
+ * 
  * Endpoints related to series resource
  * 
  **********************************************************************************/
