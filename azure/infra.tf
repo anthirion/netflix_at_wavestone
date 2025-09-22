@@ -28,7 +28,7 @@ resource "azurerm_cosmosdb_account" "netflix-db" {
   kind                = "MongoDB"
 
   free_tier_enabled          = true
-  automatic_failover_enabled = true
+  automatic_failover_enabled = false
 
   consistency_policy {
     consistency_level       = "BoundedStaleness"
@@ -40,12 +40,6 @@ resource "azurerm_cosmosdb_account" "netflix-db" {
   geo_location {
     location          = local.region
     failover_priority = 0
-  }
-
-  # secondary region for replication
-  geo_location {
-    location          = "northeurope"
-    failover_priority = 1
   }
 }
 
