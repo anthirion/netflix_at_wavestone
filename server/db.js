@@ -40,9 +40,9 @@ async function connectDB()
         DeleteAllData(Serie);
         // Add all necessary data automatically at the start
         console.log('Loading all data in the database ...');
-        const json_series_file = "../data/series.json"
+        const json_series_file = "./data/series.json"
         AddData(Serie, json_series_file);
-        // const json_scriptwriters_file = "../data/scriptwriters.json"
+        // const json_scriptwriters_file = "./data/scriptwriters.json"
         // AddData(Scriptwriter, json_scriptwriters_file);
     } 
     catch (error) {
