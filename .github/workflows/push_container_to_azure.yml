@@ -1,0 +1,12 @@
+name: Deploy last container in Github Container Registry to Azure Web App
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy last container in Github Container Registry to Azure Web App
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@main
