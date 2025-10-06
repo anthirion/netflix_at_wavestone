@@ -34,4 +34,4 @@ jobs:
         context: .
         file: ./server/Dockerfile
         push: true
-        tags: latest
+        tags: anthirion/api_training_lvl1_apiserver:latest
