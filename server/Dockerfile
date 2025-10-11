@@ -1,14 +1,12 @@
 FROM node:21.4
 
-WORKDIR /usr/src/app
+WORKDIR /usr/app
 
-COPY server/package*.json ./
+COPY server/src/ ./
+COPY server/data/ ./
+
+WORKDIR /usr/app/src/
 
 RUN npm install
 
-COPY server/ ./server/
-COPY data/ ./data/
-
 EXPOSE 8080
-
-CMD ["npm", "start"]
