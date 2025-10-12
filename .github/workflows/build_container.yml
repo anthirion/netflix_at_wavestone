@@ -2,36 +2,36 @@ name: Build and push a container of the API server
 
 on: [push]
 
-env:
-  AZURE_WEBAPP_NAME: netflix-api-server
-  AZURE_WEBAPP_PACKAGE_PATH: 'server'
-  NODE_VERSION: '21.4'
-
 jobs:
   build-and-deploy:
     name: Build and push API Server container to Docker Hub
     runs-on: ubuntu-latest
 
+    env:
+      REGISTRY: ghcr.io
+      IMAGE_NAME: ${{ github.repository }}
+
     permissions:
-      packages: write
       contents: read
+      packages: write
       attestations: write
       id-token: write
 
     steps:
     - uses: actions/checkout@v5
 
-    - name: Log in to Docker Hub
-      uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
+    - name: Log in to the Container registry
+      uses: docker/login-action@v3
       with:
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
+        registry: ${{ env.REGISTRY }}
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Build and push Docker image
       id: push
-      uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
+      uses: docker/build-push-action@v6
       with:
         context: .
         file: ./server/Dockerfile
         push: true
-        tags: anthirion/api_training_lvl1_apiserver:latest
+        tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
