@@ -43,20 +43,23 @@ resource "azurerm_cosmosdb_account" "netflix-db" {
   }
 }
 
-resource "azurerm_service_plan" "netflix-api-service-plan" {
-  name                = "netflix-api-service-plan"
-  resource_group_name = local.rg_name
+resource "azurerm_container_group" "netflix-api" {
+  name                = "netflix-api"
   location            = local.region
-  os_type             = "Linux"
-  sku_name            = "B1"
-}
-
-# App service resource
-resource "azurerm_linux_web_app" "netflix-api-server" {
-  name                = "netflix-api-server"
   resource_group_name = local.rg_name
-  location            = azurerm_service_plan.netflix-api-service-plan.location
-  service_plan_id     = azurerm_service_plan.netflix-api-service-plan.id
+  ip_address_type     = "Public"
+  dns_name_label      = "netflix_api_server"
+  os_type             = "Linux"
 
-  site_config {}
+  container {
+    name   = "netflix-api-server"
+    image  = "ghcr.io/anthirion/netflix_at_wavestone:latest"
+    cpu    = "0.5"
+    memory = "1.5"
+
+    ports {
+      port     = 443
+      protocol = "TCP"
+    }
+  }
 }
