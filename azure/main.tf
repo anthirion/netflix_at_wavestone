@@ -39,4 +39,23 @@ resource "azurerm_container_group" "netflix-api" {
       protocol = "TCP"
     }
   }
+
+  image_registry_credential {
+      server   = "index.docker.io"
+      username = var.dockerhub_username
+      password = var.dockerhub_token
+    }
+
+
+  container {
+    name   = "netflix-db"
+    image  = "mongo:noble"
+    cpu    = "1"
+    memory = "1"
+
+    ports {
+      port     = 27017
+      protocol = "TCP"
+    }
+  }
 }
