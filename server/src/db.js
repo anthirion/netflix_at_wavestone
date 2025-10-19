@@ -30,20 +30,9 @@ async function AddData(Model, filename)
 // Connect to the database, delete all the existing data and load the required data
 async function connectDB()
 {
-    try 
-    {
+    try {
         const conn = await mongoose.connect(dbURL);
         console.log(`MongoDB Connected on ${conn.connection.host}`);
-        // Delete all existing data before starting using the database
-        console.log('Deleting all data in the database ...');
-        // DeleteAllData(Scriptwriter);
-        DeleteAllData(Serie);
-        // Add all necessary data automatically at the start
-        console.log('Loading all data in the database ...');
-        const json_series_file = "./data/series.json"
-        AddData(Serie, json_series_file);
-        // const json_scriptwriters_file = "./data/scriptwriters.json"
-        // AddData(Scriptwriter, json_scriptwriters_file);
     } 
     catch (error) {
         console.error(error.message);
