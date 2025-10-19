@@ -1,2 +1,2 @@
 FROM mongo:noble
-COPY init-db.js /docker-entrypoint-initdb.d/
+COPY azure/init-db/init-db.js /docker-entrypoint-initdb.d/

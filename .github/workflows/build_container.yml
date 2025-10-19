@@ -1,21 +1,24 @@
-name: Build and push a container of the API server
+name: Build and push a container of the API server and the custom mongo image
 
 on: [push]
 
+env:
+  REGISTRY: ghcr.io
+
+
+permissions:
+  contents: read
+  packages: write
+  attestations: write
+  id-token: write
+
 jobs:
-  build-and-deploy:
+  build-and-deploy-api-server:
     name: Build and push API Server container to Docker Hub
     runs-on: ubuntu-latest
 
     env:
-      REGISTRY: ghcr.io
-      IMAGE_NAME: ${{ github.repository }}
-
-    permissions:
-      contents: read
-      packages: write
-      attestations: write
-      id-token: write
+      IMAGE_NAME: "${{ github.repository }}/api_server"
 
     steps:
     - uses: actions/checkout@v5
@@ -27,7 +30,7 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Build and push Docker image
+    - name: Build and push API server image
       id: push
       uses: docker/build-push-action@v6
       with:
@@ -35,6 +38,30 @@ jobs:
         file: ./server/Dockerfile
         push: true
         tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
-        build-args: |
-          DATABASE_URL=${{ secrets.DATABASE_URL }}
+
+  build-and-deploy-custom-mongo:
+    name: Build and push Custom Mongo image to Docker Hub
+    runs-on: ubuntu-latest
+
+    env:
+      IMAGE_NAME: "${{ github.repository }}/custom_mongo"
+
+    steps:
+    - uses: actions/checkout@v5
+
+    - name: Log in to the Container registry
+      uses: docker/login-action@v3
+      with:
+        registry: ${{ env.REGISTRY }}
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Build and push Mongo image
+      id: push
+      uses: docker/build-push-action@v6
+      with:
+        context: .
+        file: ./azure/init-db/Dockerfile
+        push: true
+        tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
 
