@@ -56,7 +56,7 @@ resource "azurerm_container_group" "netflix-api" {
     }
 
     ports {
-      port     = 443
+      port     = 8080
       protocol = "TCP"
     }
   }
