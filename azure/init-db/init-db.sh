@@ -17,4 +17,4 @@ db.createUser({
 EOF
 
 # Importe les données du fichier JSON
-mongoimport --db netflix --collection series --file /tmp/series.json --jsonArray
+mongoimport --db netflix --collection series --file /docker-entrypoint-initdb.d/series.json --jsonArray
