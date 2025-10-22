@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+set -x # Active le mode de débogage
 
 # Crée l'utilisateur et la base de données avec mongosh
 mongosh <<EOF
