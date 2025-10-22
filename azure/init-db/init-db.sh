@@ -4,7 +4,7 @@ set -x # Active le mode de débogage
 
 # Crée l'utilisateur et la base de données avec mongosh
 mongosh <<EOF
-use netflix
+use netflix;
 db.createUser({
   user: "attendee",
   pwd: "apppassword",
@@ -13,7 +13,7 @@ db.createUser({
       db: "netflix" 
     }
   ]
-})
+});
 EOF
 
 # Importe les données du fichier JSON
