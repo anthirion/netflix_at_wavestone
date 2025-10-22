@@ -47,7 +47,7 @@ resource "azurerm_container_group" "netflix-api" {
 
   container {
     name   = "netflix-api-server"
-    image  = "ghcr.io/anthirion/netflix_at_wavestone:latest"
+    image  = "ghcr.io/anthirion/netflix_at_wavestone/api_server:latest"
     cpu    = "1"
     memory = "1"
     
@@ -70,7 +70,7 @@ resource "azurerm_container_group" "netflix-api" {
 
   container {
     name   = "netflix-db"
-    image  = "mongo:noble"
+    image  = "ghcr.io/anthirion/netflix_at_wavestone/custom_mongo:latest"
     cpu    = "1"
     memory = "1"
 
