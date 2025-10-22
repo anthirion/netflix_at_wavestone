@@ -21,12 +21,29 @@
 #   }
 # }
 
+
+resource "azurerm_log_analytics_workspace" "netflix-logs" {
+  name                = "netflix-logs"
+  location            = local.region
+  resource_group_name = local.rg_name
+  sku                 = "PerGB2018"
+  retention_in_days   = 30
+}
+
 resource "azurerm_container_group" "netflix-api" {
   name                = "netflix-api"
   location            = local.region
   resource_group_name = local.rg_name
   ip_address_type     = "Public"
   os_type             = "Linux"
+
+  diagnostics {
+    log_analytics {
+      log_type = "ContainerInsights"
+      workspace_id = azurerm_log_analytics_workspace.netflix-logs.workspace_id
+      workspace_key = azurerm_log_analytics_workspace.netflix-logs.primary_shared_key
+    }
+  }
 
   container {
     name   = "netflix-api-server"
