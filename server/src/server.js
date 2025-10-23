@@ -15,4 +15,4 @@ const PORT = 8080;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 const router = require("./routes");
-app.use("/netflix_at_wavestone", router);
+app.use("/", router);
