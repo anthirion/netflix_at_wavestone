@@ -3,8 +3,8 @@
 mongosh <<EOF
 use netflix;
 db.createUser({
-  user: "attendee",
-  pwd: "apppassword",
+  user: "${MONGO_USER}",
+  pwd: "${MONGO_PASSWORD}",
   roles: [
     { role: "readWrite", 
       db: "netflix" 

@@ -29,7 +29,7 @@ resource "azurerm_container_group" "netflix-api" {
     memory = "1"
 
     environment_variables = {
-      DATABASE_URL = "mongodb://attendee:apppassword@localhost:27017/netflix"
+      DATABASE_URL = "mongodb://${var.mongo_user}:${var.mongo_password}@localhost:27017/netflix"
     }
 
     ports {
@@ -50,6 +50,11 @@ resource "azurerm_container_group" "netflix-api" {
     image  = "ghcr.io/anthirion/netflix_at_wavestone/custom_mongo:latest"
     cpu    = "1"
     memory = "1"
+
+    environment_variables = {
+      MONGO_USER = "${var.mongo_user}"
+      MONGO_PASSWORD = "${var.mongo_password}"  
+    }
 
     ports {
       port     = 27017

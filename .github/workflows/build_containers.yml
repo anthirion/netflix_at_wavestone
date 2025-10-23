@@ -64,4 +64,6 @@ jobs:
         file: ./azure/init-db/Dockerfile
         push: true
         tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
-
+        secrets: |
+          id=MONGO_USER,env=MONGO_USER
+          id=MONGO_PASSWORD,env=MONGO_PASSWORD

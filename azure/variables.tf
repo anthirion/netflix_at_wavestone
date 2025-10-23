@@ -11,3 +11,13 @@ variable "dockerhub_token" {
   type      = string
   sensitive = true
 }
+
+variable "mongo_user" {
+  type = string
+}
+
+variable "mongo_password" {
+  type      = string
+  sensitive = true
+}
+
