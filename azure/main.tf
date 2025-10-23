@@ -11,12 +11,13 @@ resource "azurerm_container_group" "netflix-api" {
   location            = local.region
   resource_group_name = local.rg_name
   ip_address_type     = "Public"
+  dns_name_label      = "netflix-at-wavestone"
   os_type             = "Linux"
 
   diagnostics {
     log_analytics {
-      log_type = "ContainerInsights"
-      workspace_id = azurerm_log_analytics_workspace.netflix-logs.workspace_id
+      log_type      = "ContainerInsights"
+      workspace_id  = azurerm_log_analytics_workspace.netflix-logs.workspace_id
       workspace_key = azurerm_log_analytics_workspace.netflix-logs.primary_shared_key
     }
   }
@@ -26,9 +27,9 @@ resource "azurerm_container_group" "netflix-api" {
     image  = "ghcr.io/anthirion/netflix_at_wavestone/api_server:latest"
     cpu    = "1"
     memory = "1"
-    
+
     environment_variables = {
-      DATABASE_URL = "mongodb://netflix-db:27017"
+      DATABASE_URL = "mongodb://attendee:apppassword@localhost:27017/netflix"
     }
 
     ports {
@@ -38,10 +39,10 @@ resource "azurerm_container_group" "netflix-api" {
   }
 
   image_registry_credential {
-      server   = "index.docker.io"
-      username = var.dockerhub_username
-      password = var.dockerhub_token
-    }
+    server   = "index.docker.io"
+    username = var.dockerhub_username
+    password = var.dockerhub_token
+  }
 
 
   container {

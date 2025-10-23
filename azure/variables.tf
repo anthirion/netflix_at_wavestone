@@ -4,7 +4,7 @@ locals {
 }
 
 variable "dockerhub_username" {
-  type      = string
+  type = string
 }
 
 variable "dockerhub_token" {
