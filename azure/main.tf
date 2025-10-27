@@ -37,13 +37,6 @@ resource "azurerm_container_group" "netflix-api" {
     }
   }
 
-  image_registry_credential {
-    server   = "index.docker.io"
-    username = var.dockerhub_username
-    password = var.dockerhub_token
-  }
-
-
   container {
     name   = "netflix-db"
     image  = "ghcr.io/anthirion/netflix_at_wavestone/custom_mongo:latest"
@@ -51,8 +44,8 @@ resource "azurerm_container_group" "netflix-api" {
     memory = "1"
 
     environment_variables = {
-      MONGO_USER = "${var.mongo_user}"
-      MONGO_PASSWORD = "${var.mongo_password}"  
+      MONGO_USER     = "${var.mongo_user}"
+      MONGO_PASSWORD = "${var.mongo_password}"
     }
 
     ports {

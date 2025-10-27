@@ -3,15 +3,6 @@ locals {
   region  = "West Europe"
 }
 
-variable "dockerhub_username" {
-  type = string
-}
-
-variable "dockerhub_token" {
-  type      = string
-  sensitive = true
-}
-
 variable "mongo_user" {
   type = string
 }

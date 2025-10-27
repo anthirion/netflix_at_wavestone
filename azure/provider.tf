@@ -4,10 +4,6 @@ terraform {
       source  = "hashicorp/azurerm"
       version = "=4.27.0"
     }
-    docker = {
-      source  = "kreuzwerker/docker"
-      version = "3.6.2"
-    }
   }
 }
 
