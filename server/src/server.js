@@ -4,10 +4,15 @@ const connectDB = require("./db");
 var bodyParser = require("body-parser");
 const MongoDBURL = process.env.DATABASE_URL;
 
+// Configure app
 const app = express();
 // body parser setup
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+// Configure logger
+var morgan = require('morgan');
+app.use(morgan("tiny"));
 
 connectDB(MongoDBURL);
 
