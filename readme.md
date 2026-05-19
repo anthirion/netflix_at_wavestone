@@ -7,81 +7,31 @@ Cette implémentation n'expose qu'un seul endpoint (/series) et propose des opé
 Elle a pour but de faire découvrir les principales requêtes API (GET, PUT, POST, DELETE) et les filtres simples.
 Pour plus d'informations sur les endpoints, les réponses et les erreurs, veuillez consulter le swagger fourni dans ce repo.
 
-## Utilisation en local
+## Utilisation via le cloud Azure (à destination des formateurs)
 
-### Installer une base de données MongoDB
+L'infrastructure est hébergée sur Azure et gérée via Terraform. Les fichiers de code IaC sont stockés dans le dossier `azure`.
+L'infrastructure s'appuie sur Azure Container Instances (ACI) pour déployer un groupe de conteneurs comprenant 2 conteneurs :
+- **netflix-api-server** : l'API exposée publiquement sur le port HTTP 80,
+- **netflix-db** : la base de données MongoDB personnalisée, qui communique avec l'API et qui stocke des données de films.
 
-Installez la dernière version Compass de MongoDB disponible sur le site de l'éditeur.
+Les logs des conteneurs sont par ailleurs centralisés dans un espace de travail Azure Log Analytics (`netflix-logs`).
 
-### Installer Postman
+Une fois déployée, l'API se verra attribuer un nom de domaine public (FQDN) configuré par Azure. Pour récupérer l'adresse IP, allez voir dans l'onglet 'Overview' de la ressource Azure Container Instances directement sur le portail Azure (l'adresse publique n'est pas statique et est regénérée à chaque déploiement).
 
-Installez la dernière version de Postman disponible sur le site de l'éditeur.
+## Déployer l'infrastructure (à destination des formateurs)
 
-### Installer node js et les modules nécessaires
+> [!WARNING]
+> Avant de procéder au déploiement, veillez à bien vérifier que le nom du groupe de ressources (`rg_name`) configuré dans le fichier `azure/variables.tf` est correct.
 
-Pour installer node js, tapez "node js download" dans un navigateur et installez la dernière version disponible sur le site nodejs.org.
-Installez ensuite les modules _express, mongoose et nodemon_, en tapant dans un terminal powershell la commande suivante :
+Assurez-vous d'être authentifié sur Azure (via `az login`) et d'avoir choisi la bonne subscription (via `az account show`). Ensuite, dans un terminal, naviguez dans le dossier `azure` et exécutez les commandes suivantes :
 
-```powershell
-npm install
-```
-
-### Ajouter l'URL de la base de données MongoDB
-
-Ajouter un fichier nommé _.env_ dans le dossier _server_ et ajouter l'URL de connection à la base de donnée indiquée dans MongoDB Compass.
-Si vous êtes en local et que vous nommez votre BDD _Netflix_, vous devriez avoir :
-
-```nodejs
-DATABASE_URL = "mongodb://localhost:27017/Netflix"
-```
-
-### Lancer le serveur
-
-Lancer le serveur dans un terminal powershell à l'aide de la commande suivante :
-
-```powershell
-npm start
-```
-
-### Intéragir avec l'API via Postman
-
-Utilisez Postman pour effectuer des requêtes. L'adresse de connection devrait être la suivante :
-http://localhost:4000/netflix_at_wavestone/series
-
-## Utilisation à travers l'instance ec2 Wavestone (à destination des formateurs)
-
-### Ouvrir les ports nécessaires sur l'instance ec2
-
-Assurez-vous que les ports 4000 et 27017 sont ouverts sur la VM (le port 4000 sert au serveur et le port 27017 à la BDD).
-
-### Se connecter à l'instance via ssh
-
-Si vous ne l'avez pas encore fait, créez une paire de clés ssh en suivant la documentation sur le lien suivant :
-https://docs.aws.amazon.com/fr_fr/servicecatalog/latest/adminguide/getstarted-keypair.html
-Ensuite, démarrer l'instance ec2 et connectez-vous y avec la commande suivante :
-
+1. Initialisation de Terraform :
 ```bash
-ssh -i cle_ssh_publique.pem dns_public
+terraform init
 ```
 
-(la commande est indiquée dans l'onglet Client SSH sur la console AWS)
-
-### Lancer la base de données MongoDB
-
-Lancer la base de données en lançant le script launch_mongodb.sh de la manière suivante :
-
+2. Déploiement :
 ```bash
-sudo ./launch_mongodb.sh
+terraform apply
 ```
-
-### Lancer le serveur API
-
-Lancer le serveur en lançant le script launch_server.sh de la manière suivante :
-
-```bash
-sudo ./launch_server.sh
-```
-
-### Intéragir avec l'API via Postman
-
-Utilisez Postman avec l'adresse DNS publique de l'instance ec2 fournie dans la console AWS.
+*(Il vous sera demandé de renseigner les variables `mongo_user` et `mongo_password` utilisées pour sécuriser la base de données MongoDB. Rapprochez-vous du propriétaire du projet pour les obtenir).*
