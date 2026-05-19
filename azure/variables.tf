@@ -1,5 +1,5 @@
 locals {
-  rg_name = "antoine-thirion26294"
+  rg_name = "antoine-thirion40814"
   region  = "West Europe"
 }
 
